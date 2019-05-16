@@ -1,6 +1,9 @@
-## 一键安装 WireGuard  Shadowsocks V2Ray 服务端三合一脚本
+## 一键安装 WireGuard Shadowsocks V2Ray 服务端三合一脚本 [IPV6](https://github.com/hongwenjun/vps_setup/blob/master/ipv6/README.md)
     bash <(curl -L -s https://git.io/vps.sh)
-    wget -qO- git.io/vps.sh | bash       # wget调用是静默安装  curl调用可以使用菜单
+    # curl脚本可以使用菜单，方便选择 # wget脚本是静默安装 # 目前 WireGuard 脚本支持 IPV6，稳定有待测试
+    # wget -qO- git.io/vps.sh | bash
+
+- [蘭雅sRGB![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/youtube.png)频道](https://www.youtube.com/channel/UCupRwki_4n87nrwP0GIBUXA/videos) &nbsp;&nbsp;&nbsp;可以观看相关脚本工具的演示视频!
 
 | [一键安装 WireGuard 脚本](https://github.com/hongwenjun/vps_setup/blob/master/Wireguard/README.md) |[一键安装 Shadowsocks 脚本](https://github.com/hongwenjun/vps_setup/blob/master/shadowsocks/README.md) | [V2Ray 官方一键脚本](https://github.com/hongwenjun/vps_setup/blob/master/v2ray/README.md) |
 | :------:| :------: | :------: |
@@ -8,7 +11,7 @@
 
 ![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/vps.sh.png)
 
-| WireGuard 管理 | bash wgmtu | 卸载命令 | bash wgmtu remove | 
+| WireGuard 管理 | bash wgmtu | 卸载命令 | bash wgmtu remove |
 | :------:| :------: | :------:| :------: |
 
 |V2Ray 卸载命令 | bash <(curl -L -s https://install.direct/go.sh) --remove |
@@ -19,7 +22,13 @@
 - 此项目仅限于技术交流和探讨，在您测试完毕后必须在1秒钟内彻底删除项目副本。此项目为bash一键脚本，其中涉及到的任何软件版权和责任归原作者所有。
 - 在中国境内使用、传播、售卖、免费分享等任何翻墙服务，都是违法的。如果你在中国境内使用、测试此项目脚本，或者使用此脚本搭建服务器发生以上违法行为，都有违作者意愿！你必须立刻停止此行为！并删除脚本！
 
-### WireGuard 管理使用命令 bash wgmtu 
+### [OpenWRT安装WireGuard 配置 Udp2Raw+UdpSpeeder+WireGuard](https://github.com/hongwenjun/vps_setup/blob/master/openwrt-18.06.2/README.md)
+![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/openwrt-18.06.2/openwrt_udptools.png)
+
+### V2Ray 和 Shadowsocks 配置显示二维码  短网址: https://git.io/v2ray.ss
+![](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/v2ray/v2ray.ss.png)
+
+### WireGuard 管理使用命令 bash wgmtu    短网址: https://git.io/wgmtu
 [![点击图片链接视频演示](https://raw.githubusercontent.com/hongwenjun/vps_setup/master/img/wgmtu.png)](https://youtu.be/iOnAeWRvSQI)
 
 ### Shadowsocks 配置使用: 添加命令行到 /etc/rc.local
@@ -32,7 +41,11 @@ ss-server -s 0.0.0.0 -p 40000 -k ${PASSWORD} -m aes-256-gcm -t 300 >> /var/log/s
 ```
 cat /etc/v2ray/config.json
 ```
----
+
+### V2RAY基于NGINX的[VMESS+WS+TLS+Website](https://git.io/v2ray.nginx)手工配置原理
+- 短网址: https://git.io/v2ray.nginx
+
+----
 
 ### 一键安装wireguard 参考演示视频集合
 
@@ -130,7 +143,7 @@ tar -czv -T filelist -f ss_frp.tar.gz
 -T 选项可以指定包含要备份的文件列表
 ```
 
-## 搬迁备份文件，使用wget
+### 搬迁备份文件，使用wget
 - 可以先不删除原来机器，新建立机器使用wget把备份文件挪过去
 - 本笔记，由于使用Vultr_IPV6的机器，所以使用wget先下载到本地电脑了
 
@@ -181,7 +194,7 @@ https://raw.githubusercontent.com/hongwenjun/vps_setup/master/vps.sh
 ### Git pull 强制覆盖本地文件
 ```
 git fetch --all
-git reset --hard origin/master 
+git reset --hard origin/master
 git pull
 git fetch origin master
 git merge origin/master

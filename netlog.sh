@@ -50,7 +50,7 @@ vnstat_install(){
     else
         # centos 系安装 vnstat nginx，如果web没法访问，需要关防火墙
         yum -y install vnstat nginx
-	systemctl enable  nginx
+        systemctl enable  nginx
         systemctl restart nginx
     fi
 
@@ -74,7 +74,7 @@ vnstat_install(){
 		systemctl restart crond
 	fi
 	rm -f crontab.txt
-
+    echo "vnstat conf @ /etc/vnstat.conf"
 }
 
 # 首次运行脚本需要安装
